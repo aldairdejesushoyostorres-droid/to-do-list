@@ -84,6 +84,19 @@ def add_task(tasks):
 
     tasks.append(task)
 
+
+def show_tasks(tasks):
+    for i in range(len(tasks)):
+        print("\nList of all tasks:\n\n")
+        print("##############################################")
+        print(f"\nTask {i+1}:")
+        print(f"\nName: {tasks[i]["name"]}")
+        print(f"\nDescription: {tasks[i]["description"]}")
+        print(f"\nDate: {tasks[i]["date"]}")
+        print(f"\nPriority: {tasks[i]["priority"]}")
+        print("\n##############################################\n")
+
+
 tasks = []
 add_task(tasks)
-print(tasks)
+show_tasks(tasks)
