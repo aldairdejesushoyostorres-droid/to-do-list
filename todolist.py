@@ -79,24 +79,43 @@ def add_task(tasks):
         "name": name,
         "description": description,
         "date": date,
-        "priority": priority
+        "priority": priority,
+        "status": False #It indicates if the task has been resolved or not
     }
 
     tasks.append(task)
 
 
 def show_tasks(tasks):
+    print("\nList of all tasks:\n\n")
     for i in range(len(tasks)):
-        print("\nList of all tasks:\n\n")
         print("##############################################")
         print(f"\nTask {i+1}:")
         print(f"\nName: {tasks[i]["name"]}")
         print(f"\nDescription: {tasks[i]["description"]}")
         print(f"\nDate: {tasks[i]["date"]}")
         print(f"\nPriority: {tasks[i]["priority"]}")
+        if tasks[i]["status"] == False:
+            print("\nStatus: Not resolved")
+        else:
+            print("\nStatus: Resolved")
         print("\n##############################################\n")
 
 
-tasks = []
-add_task(tasks)
-show_tasks(tasks)
+def mark_done(tasks):
+    print("\nThese are all of your tasks")
+    show_tasks(tasks)
+    while True:
+        try:
+            option = int(input("\nWhich of the tasks you want to mark as resolved: "))
+            if option < 1 or option > len(tasks):
+                print("\nYou have to select a valid value among the ones provided, try again")
+            else:
+                if tasks[option-1]["status"] == True:
+                    print("\nThis task is already solved")
+                else:
+                     tasks[option-1]["status"] = True
+                break
+        except ValueError:
+            print("\nYou have to provide a valid numeric answer, try again")
+    print("\nTask completed!")
