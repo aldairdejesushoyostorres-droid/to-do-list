@@ -1,7 +1,6 @@
 import datetime 
 
-def main():
-    print("Welcome to your to-do list!")
+def menu_options():
     while True:
         try:
             print("\nChoose an action between the following ones:")
@@ -15,6 +14,7 @@ def main():
                 break
         except ValueError:
             print("\nYou have to select a valid numeric option")
+    return option
 
 def add_task(tasks):
     name = input("\nName of the task: ")
