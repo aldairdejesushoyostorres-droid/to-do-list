@@ -1,6 +1,7 @@
 import todolist
 
-tasks = []
+# 1. LOAD TASKS ON STARTUP
+tasks = todolist.load_tasks()
 
 print("Welcome to your to-do list!")
 
@@ -29,6 +30,8 @@ while True:
     if option2 == 1:
         pass
     else:
+        # 2. SAVE TASKS BEFORE EXIT
+        todolist.save_tasks(tasks)
         break
 
 print("\nProcess Finished!")
